@@ -48,7 +48,7 @@ app.get("/story", async (req, res) => {
 			messages: [
 				{
 					role: "user",
-					content: "Write a story of " + STORY_TITLE,
+					content: "Write a story of " + STORY_TITLE + "with 300 to 400 words",
 				},
 			],
 			temperature: 0.4,
