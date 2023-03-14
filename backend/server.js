@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/image", async (req, res) => {
+	console.log("requesting image...");
 	try {
 		const response = await openai.createImage({
 			prompt: STORY_TITLE,
@@ -42,6 +43,7 @@ app.get("/image", async (req, res) => {
 });
 
 app.get("/story", async (req, res) => {
+	console.log("requesting story...");
 	try {
 		const textResponse = await openai.createChatCompletion({
 			model: "gpt-3.5-turbo",

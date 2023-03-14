@@ -15,17 +15,25 @@ function App() {
   const getImage = async() => {
     let res = await fetch(IMAGE_URL);
     let data = await res.json();
-    console.log("Image retrieved");
-    setImgUrl(data.url);
-    setImgLoading(false);
+    if (data.success){
+      setImgUrl(data.url);
+      setImgLoading(false);
+    } else {
+      console.log("Image failed")
+      setImgUrl("https://media.istockphoto.com/id/182278828/photo/failed-square-stamp.jpg?s=612x612&w=0&k=20&c=Qd54_jcau3xM1Qmn7wzwH9n-cJCn2VWjMw9KMHwr1qM=")
+    }
   }
 
   const getStory = async() => {
     let res = await fetch(STORY_URL);
     let data = await res.json();
-    console.log("Story retrieved");
-    setStory(data.story);
-    setStoryLoading(false);
+    if (data.success){
+      console.log(data.story)
+      setStory(data.story);
+      setStoryLoading(false);
+    } else {
+      setStory("Failed to retrieve story...")
+    }
   }
 
   useEffect(() => {
