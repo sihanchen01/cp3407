@@ -1,0 +1,27 @@
+{
+  "name": "cp3407",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <img src=\"./image/idea.png\">\r </p>",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run server",
+    "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "installFrontend": "cd frontend && npm install",
+    "installBackend": "cd backend && npm install",
+    "getAll": "concurrently \"npm install\" \"npm run installFrontend\" \"npm run installBackend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sihanchen01/cp3407.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sihanchen01/cp3407/issues"
+  },
+  "homepage": "https://github.com/sihanchen01/cp3407#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
