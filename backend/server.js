@@ -50,10 +50,9 @@ app.get("/story", async (req, res) => {
 			messages: [
 				{
 					role: "user",
-					content: "Write a story of " + STORY_TITLE + "with 300 to 400 words",
+					content: "Write a story of " + STORY_TITLE + "within 250 words",
 				},
 			],
-			temperature: 0.4,
 		});
 
 		return res.status(200).json({
