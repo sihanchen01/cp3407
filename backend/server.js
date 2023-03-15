@@ -14,17 +14,18 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const STORY_TITLE = "batman vs ironman";
+// const STORY_TITLE = "batman vs ironman";
 
 app.get("/", (req, res) => {
 	res.send("Hello");
 });
 
-app.get("/image", async (req, res) => {
-	console.log("requesting image...");
+app.post("/image", async (req, res) => {
 	try {
+		const { reqPrompt } = req.body;
+		console.log("requesting image for: " + reqPrompt);
 		const response = await openai.createImage({
-			prompt: STORY_TITLE,
+			prompt: reqPrompt,
 			size: "512x512",
 		});
 
@@ -42,15 +43,15 @@ app.get("/image", async (req, res) => {
 	}
 });
 
-app.get("/story", async (req, res) => {
-	console.log("requesting story...");
+app.post("/story", async (req, res) => {
 	try {
+		const { reqPrompt } = req.body;
 		const textResponse = await openai.createChatCompletion({
 			model: "gpt-3.5-turbo",
 			messages: [
 				{
 					role: "user",
-					content: "Write a story of " + STORY_TITLE + "within 250 words",
+					content: "Write a story of " + reqPrompt + "within 250 words",
 				},
 			],
 		});
