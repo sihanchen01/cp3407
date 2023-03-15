@@ -5,7 +5,7 @@
   <img src="./image/idea.png">
 </p>
 
-### Write's block happen to all of us, to minimized that, let IDEA Generator, an AI story and picture engine powered by OpenAI, be the source for your next inspiration!
+### Writer's block happen to all of us, to minimized that, let IDEA Generator, an AI story and picture engine powered by OpenAI, be the source for your next inspiration!
 
 ## Flowchart
 ```mermaid
