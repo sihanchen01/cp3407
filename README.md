@@ -7,7 +7,6 @@
 
 ### Write's block happen to all of us, to minimized that, let IDEA Generator, an AI story and picture engine powered by OpenAI, be the source for your next inspiration!
 
-#
 ## Flowchart
 ```mermaid
 ---
@@ -30,7 +29,7 @@ flowchart LR
   E --NO--> G
   G --> D
 ```
-#
+
 ## Changelog:
 * Version 1.1
     * Add home page, navigation and routers (using [react-router](https://reactrouter.com/en/main))
