@@ -62,8 +62,8 @@ npm run start
     ![search bar](./image/search_bar.png)
     ![dynamic content](./image/user_generated_content.png)
     * __TODO__: 
-        1. Add function to gather user feedback on satisfaction of AI generated content, for further tuning
-        2. Online deployment.
+        * Add function to gather user feedback on satisfaction of AI generated content, for further tuning
+        * Online deployment.
     #
 
 * Version 1.0
