@@ -29,9 +29,14 @@ flowchart LR
   E --NO--> G
   G --> D
 ```
+## Tech Stack
+React (vite), ExpressJS, AWS Lightsail 
+
 ## How to use
 ### Online deployment
-> *Although the end goal is to bring our application online, we may delay the plane due to budget control and other practical factors.*
+> *Due to budget limit on OpenAI API, the online application may be taken down. If that is the case, download and host application with your own OpenAI API key. More detail: [local deployment](#local-deployment).*
+
+Checkout our application at <u>[sihanchen.com](https://sihanchen.com)</u> and we would greatly appreciate any feedback you have.
 
 ### Local deployment
 
@@ -51,11 +56,28 @@ Then, to **install/update** both frontend and backend dependencies:
 ```
 npm run getAll
 ```
+Create a file `.env` at `cp3407/backend/.env`, specify `8001` as backend port and input your OpenAI api key ([OpenAI API Key](https://platform.openai.com/account/api-keys)). 
+
+The final `.env` file should look like this:
+```
+PORT=8001
+OPENAI_API_KEY="YOUR_API_KEY"
+```
+
 Lastly, to **run** both frontend and backend applications:
 ```
 npm run start
 ```
 ## Changelog:
+* Version 1.2
+    * Complete Online deployment with [AWS Lightsail](https://aws.amazon.com/lightsail/) instance
+    * Added SSL Certificate
+    * Hosted website at: [sihanchen.com](https://sihanchen.com)
+    * __TODO__:
+      * Create roadmap to add more functions and optimize current features
+      * Add user registration, limit using to verified users to avoid spam 
+      * Pick a Database and design schemas
+
 * Version 1.1
     * Add home page, navigation and routers (using [react-router](https://reactrouter.com/en/main))
     * Add search bar to let user to search interested topic, then dynamically generate AI image and text 
