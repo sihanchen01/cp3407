@@ -30,7 +30,9 @@ flowchart LR
   G --> D
 ```
 ## Tech Stack
-React (vite), ExpressJS, AWS Lightsail 
+* React (vite)
+* ExpressJS
+* AWS Lightsail 
 
 ## How to use
 ### Online deployment
