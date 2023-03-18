@@ -8,7 +8,7 @@ svg {
 }
 
 svg>path {
-  fill: #4f93cf;
+  fill: #213547;
 }
 
 :root {
@@ -31,7 +31,7 @@ main {
 }
 
 nav {
-  background-color: #4f93cf;
+  background-color: #213547;
   min-height: 10vh;
 }
 
@@ -124,7 +124,7 @@ a:hover {
 }
 
 .footer_container {
-  background-color: #4f93cf;
+  background-color: #213547;
   height: 20vh;
   display: flex;
   justify-content: center;
@@ -133,11 +133,12 @@ a:hover {
 
 .footer_container>* {
   margin: 0 0.8rem;
-  color: #1a1a1a;
+  color: #eee;
 }
 
 .footer_container>span>a {
-  color: #1a1a1a;
+  font-weight: bold;
+  color: #eee;
 }
 
 .icon {
@@ -145,7 +146,7 @@ a:hover {
 }
 
 .icon>svg>path {
-  fill: black;
+  fill: #eee;
 }
 
 .search_container {
@@ -203,8 +204,16 @@ a:hover {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #f8f8f8;
+    color: #1e78c6;
+    background-color: #ece9e9;
+  }
+
+  nav {
+    background-color: #4f93cf;
+  }
+
+  svg>path {
+    fill: #4f93cf;
   }
 
   a:hover {
@@ -216,15 +225,23 @@ a:hover {
   }
 
   .chatgpt {
-    color: #213547
+    color: #4f93cf
   }
 
   .footer_container {
-    background-color: #213547;
+    background-color: #4f93cf;
+  }
+
+  .footer_container>* {
+    color: #303030;
   }
 
   .footer_container>span>a {
-    color: #d3d2d2;
+    color: #303030;
+  }
+
+  .icon>svg>path {
+    fill: #303030;
   }
 }
 
