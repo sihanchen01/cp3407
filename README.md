@@ -36,7 +36,7 @@ React (vite), ExpressJS, AWS Lightsail
 ### Online deployment
 > *Due to budget limit on OpenAI API, the online application may be taken down. If that is the case, download and host application with your own OpenAI API key. More detail: [local deployment](#local-deployment).*
 
-Checkout our application at <u>[sihanchen.com](https://sihanchen.com)</u> and we would greatly appreciate any feedback you have.
+Checkout our application at **[sihanchen.com](https://sihanchen.com)** and we would greatly appreciate any feedback you have.
 
 ### Local deployment
 
