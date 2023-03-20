@@ -30,6 +30,11 @@ main {
   min-height: 50vh;
 }
 
+.container {
+  width: 75%;
+  margin: auto;
+}
+
 nav {
   background-color: #213547;
   min-height: 10vh;
