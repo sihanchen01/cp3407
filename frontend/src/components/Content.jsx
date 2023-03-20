@@ -3,8 +3,8 @@ import CircleLoader from "react-spinners/CircleLoader"
 import BeatLoader from "react-spinners/BeatLoader"
 import { useLocation } from 'react-router-dom'
 
-const IMAGE_URL = "http://127.0.0.1:8001/image"
-const STORY_URL = "http://127.0.0.1:8001/story"
+const IMAGE_URL = "https://sihanchen.com:8001/image"
+const STORY_URL = "https://sihanchen.com:8001/story"
 
 const Content = () => {
 
