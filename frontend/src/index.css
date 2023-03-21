@@ -49,6 +49,13 @@ nav>ul {
   justify-content: space-around;
 }
 
+.user {
+  font-size: 0.8rem;
+  color: #eee;
+  font-weight: bold;
+  font-style: italic;
+}
+
 
 h1 {
   font-size: 3.2em;

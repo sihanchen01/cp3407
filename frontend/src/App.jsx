@@ -1,8 +1,9 @@
 import Navbar from "./components/Navbar"
-import Home from "./components/Home"
-import Search from "./components/Search"
-import About from "./components/About"
-import Content from "./components/Content"
+import Home from "./pages/Home"
+import Search from "./pages/Search"
+import About from "./pages/About"
+import Content from "./pages/Content"
+import Profile from "./pages/Profile"
 import Footer from "./components/Footer"
 import {Routes, Route} from "react-router-dom"
 import NotFound from "./components/NotFound"
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/content" element={<Content />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </main>
