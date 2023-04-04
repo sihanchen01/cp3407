@@ -14,8 +14,9 @@ const clientId = import.meta.env.VITE_AUTH0_CLIENTID
 const providerConfig = {
     domain: domain,
     clientId: clientId,
-    redirectUri: window.location.origin
-
+    redirectUri: window.location.origin,
+    useRefreshTokens: true,
+    cacheLocation: "memory"
 }
 
 

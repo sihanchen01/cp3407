@@ -2,6 +2,7 @@ import { useAuth0 }  from "@auth0/auth0-react";
 import ProfileIcon from "./ProfileIcon";
 import { Button } from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap"
+import { useEffect } from "react";
 
 // Bootstrap Navbar
 import Container from 'react-bootstrap/Container';
@@ -14,6 +15,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const MyNavbar = () => {
 
   const { user,isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  useEffect(() => {
+  }, [])
+  
 
   const logoutWithRedirect = () => {
     logout({
