@@ -79,6 +79,28 @@ Lastly, to **run** both frontend and backend applications:
 npm run start
 ```
 ## Changelog:
+* Version 1.3
+    * Add [auth0](https://auth0.com/) to frontend as 3rd party authentication middleware, allow user to signup via Google
+    * Now user must sign up and be verified (verification only apply to email sign up, 3rd party authentication automatically verified) before they can use search function.
+    * OpenAI API free trial has ended at April 1st 2023, the current testing is conducted with self-paid API key, so it's likely for us to __disable backend server__ on production website, to lower development overhead.
+    * Add [react-bootstrap](https://react-bootstrap.github.io/) to ease the frontend styling & revamp previous pages with bootstrap.
+    * __DEBUG__:
+      * backend server works during test, however, sending CORS error in production. possible cause: changed domain causing https cert failure
+    * __TODO__:
+      * fix CORS error
+
+    | ![new home page](./image/new_home_page.png) |
+    |:--:| 
+    | *new home page* |
+
+    | ![invalid user search](./image/invalid_user_search.png) |
+    |:--:| 
+    | *invalid user search* |
+
+    | ![valid user search](./image/valid_user_search.png) |
+    |:--:| 
+    | *valid user search* |
+
 * Version 1.2
     * Complete Online deployment with [AWS Lightsail](https://aws.amazon.com/lightsail/) instance
     * Added SSL Certificate
