@@ -35,19 +35,23 @@ main {
   margin: auto;
 }
 
-nav {
+
+.mynavbar {
   background-color: #213547;
   min-height: 10vh;
 }
 
-nav>ul {
-  display: flex;
-  width: 90%;
-  margin: auto;
-  padding: 2rem 0 0;
-  list-style-type: none;
-  justify-content: space-around;
+.navitem {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
 }
+
+.nav-active {
+  color: #000;
+}
+
 
 .user {
   font-size: 0.8rem;
@@ -57,7 +61,8 @@ nav>ul {
 }
 
 
-h1 {
+h1.h1-custom {
+  color: #1e78c6;
   font-size: 3.2em;
   line-height: 1.1;
   font-family: 'Kanit', 'sans-serif';
@@ -67,6 +72,18 @@ h1 {
   text-align: center;
   font-style: italic;
 }
+
+
+.my-font-custom {
+  color: #1e78c6;
+  line-height: 1.1;
+  font-family: 'Kanit', 'sans-serif';
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 auto 2rem;
+  font-style: italic;
+}
+
 
 img {
   border-radius: 20px;
@@ -220,7 +237,7 @@ a:hover {
     background-color: #ece9e9;
   }
 
-  nav {
+  .mynavbar {
     background-color: #4f93cf;
   }
 

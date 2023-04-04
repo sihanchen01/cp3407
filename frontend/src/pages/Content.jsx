@@ -3,8 +3,8 @@ import CircleLoader from "react-spinners/CircleLoader"
 import BeatLoader from "react-spinners/BeatLoader"
 import { useLocation } from 'react-router-dom'
 
-const IMAGE_URL = "https://sihanchen.com:8001/image"
-const STORY_URL = "https://sihanchen.com:8001/story"
+const IMAGE_URL = "https://ase.sihanchen.com:8001/image"
+const STORY_URL = "https://ase.sihanchen.com:8001/story"
 
 const Content = () => {
 
@@ -61,10 +61,10 @@ const Content = () => {
   return (
     <div>
         {searchTerm.length > 40 ? 
-          <h1 className='search_term_short'>{searchTerm.slice(0, 40)} ...
+          <h1 className='search_term_short h1-custom'>{searchTerm.slice(0, 40)} ...
             <span className='search_term_full'>{searchTerm}</span>
           </h1> 
-        : <h1>{searchTerm}</h1> }
+        : <h1 className='h1-custom'>{searchTerm}</h1> }
 
       <div className={storyLoading ? "loading" : "content"}>
         {imgLoading ? <CircleLoader size={120} color={"#36d7b7"} speedMultiplier={0.5}/> : <img src={imgUrl} alt={searchTerm} />}

@@ -1,13 +1,6 @@
 import {useAuth0} from "@auth0/auth0-react"
-import { Link } from "react-router-dom";
-
-const linkStyle = {
-  textDecoration: "none",
-  cursor: "pointer",
-  fontSize: "1rem",
-  fontWeight: 600,
-  color: "white"
-}
+import { LinkContainer } from "react-router-bootstrap";
+import Nav from "react-bootstrap/Nav"
 
 
 const ProfileIcon = () => {
@@ -16,7 +9,11 @@ const ProfileIcon = () => {
   return (
     <>
     {isAuthenticated && (
-      <li><Link className="user" to="/profile" style={linkStyle}>Welcome, {user?.name.includes("@") ? user?.nickname : user?.name}</Link></li>
+      <LinkContainer to="/profile">
+        <Nav.Link className="fst-italic text-white mx-2">
+          <u> Welcome, {user?.name.includes("@") ? user?.nickname : user?.name} </u>
+        </Nav.Link>
+      </LinkContainer>
     )}
     </>
   )
