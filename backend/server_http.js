@@ -3,8 +3,6 @@ const app = express();
 app.use(express.json());
 const cors = require("cors");
 app.use(cors({ origin: "*" }));
-const https = require("https");
-const fs = require("fs");
 
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
@@ -73,14 +71,6 @@ app.post("/story", async (req, res) => {
 	}
 });
 
-https
-	.createServer(
-		{
-			cert: fs.readFileSync("sihanchen.com.crt"),
-			key: fs.readFileSync("sihanchen.com.key"),
-		},
-		app
-	)
-	.listen(PORT, () => {
-		console.log(`App is running on port ${PORT}`);
-	});
+app.listen(PORT, () => {
+	console.log(`App is running on port ${PORT}`);
+});

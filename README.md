@@ -58,7 +58,7 @@ Firstly, run `npm install` to install [concurrently](https://www.npmjs.com/packa
 ```
 npm install
 ```
-Then, to **install/update** both frontend and backend dependencies:
+Then, run`num run getAll` to install and update both frontend and backend dependencies:
 ```
 npm run getAll
 ```
@@ -69,6 +69,10 @@ The final `.env` file should look like this:
 PORT=8001
 OPENAI_API_KEY="YOUR_API_KEY"
 ```
+
+> Also, you need to change front end api call URL from "https://ase.sihanchen.com:8001/" to "http://localhost:8001/" 
+
+> One more thing, the `backend/server.js` was set with https server, wich requires a `.crt` and `.key` file for SSL/TLS certification. If you wich to run localhost, use `server_http.js` instead.
 
 Lastly, to **run** both frontend and backend applications:
 ```
