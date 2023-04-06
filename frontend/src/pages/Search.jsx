@@ -24,7 +24,7 @@ const Search = () => {
             <h1 className="h1-custom">IDEA Generator</h1>
             <div className="search_container">
               <input type="text" placeholder="What's on your mind?" className="search_input" onChange={handleChange} maxLength={80}/>
-              <Link to="/content" state={{searchTerm: searchTerm}}><Button className="py-3 px-5"><FiSearch size={35}/></Button></Link>
+              <Link to="/content" state={{searchTerm: searchTerm, userEmail:user.email}}><Button className="py-3 px-5"><FiSearch size={35}/></Button></Link>
             </div>
           </>
           : 

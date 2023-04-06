@@ -79,6 +79,20 @@ Lastly, to **run** both frontend and backend applications:
 npm run start
 ```
 ## Changelog:
+* Version 1.4
+    * Add AWS DynamoDB to stack, as the database of choice.
+      * Create table name *search_result*, with Partition key *UserId*, and sort key *CreationDate*
+    * Data sructure:
+      | UserId (String) | CreationDate (number) | Story (String) | StoryLike (number) | ImageUrl (String) | ImageLike (number)|
+      |---|---|---|---|---|---|
+      | u1@a.io  | 1680748332  | ipsum  | 0 | http:example.com/image  | 1    |
+      | u2@a.io  | 1680748309  | ipsum  | 0 | http:example.com/image  | null |
+      * UserId: user email retrived from auth0, store as a string
+      * CreationDate: timestamp of search request received by backend server, store as a number
+      * Story/ImageUrl: search result retrived from OpenAI, store as a string
+      * StoryLike/ImageLike: boolean value, null for no feedback; store as a boolean
+
+
 * Version 1.3
     * Add [auth0](https://auth0.com/) to frontend as 3rd party authentication middleware, allow user to signup via Google
     * Now user must sign up and be verified (verification only apply to email sign up, 3rd party authentication automatically verified) before they can use search function.

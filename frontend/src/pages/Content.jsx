@@ -9,7 +9,7 @@ const STORY_URL = "https://ase.sihanchen.com:8001/story"
 const Content = () => {
 
   const location = useLocation();
-  const {searchTerm} = location.state;
+  const {searchTerm, userEmail} = location.state;
 
   const [imgUrl, setImgUrl] = useState("")
   const [story, setStory] = useState("...")
@@ -23,7 +23,7 @@ const Content = () => {
       headers: {
         'Content-Type': "application/json"
       },
-      body: JSON.stringify({reqPrompt: searchTerm})
+      body: JSON.stringify({reqPrompt: searchTerm, userEmail: userEmail})
     });
 
     let data = await res.json();

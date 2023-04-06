@@ -1,4 +1,3 @@
-const express = require("express");
 const app = express();
 app.use(express.json());
 const cors = require("cors");
@@ -10,13 +9,12 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+// Setup OpenAI API
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
 	apiKey: OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-
-// const STORY_TITLE = "batman vs ironman";
 
 app.get("/", (req, res) => {
 	res.send("Hello");
@@ -24,12 +22,17 @@ app.get("/", (req, res) => {
 
 app.post("/image", async (req, res) => {
 	try {
-		const { reqPrompt } = req.body;
+		const { reqPrompt, userEmail } = req.body;
 		console.log("requesting image for: " + reqPrompt);
+		console.log("useremail: " + userEmail);
+
+		// Call OpenAI API
 		const response = await openai.createImage({
 			prompt: reqPrompt,
 			size: "512x512",
 		});
+
+		// TODO: Write search result to AWS dynamoDB
 
 		return res.status(200).json({
 			success: true,
@@ -47,8 +50,11 @@ app.post("/image", async (req, res) => {
 
 app.post("/story", async (req, res) => {
 	try {
-		const { reqPrompt } = req.body;
+		const { reqPrompt, userEmail } = req.body;
 		console.log("requesting story for: " + reqPrompt);
+		console.log("useremail: " + userEmail);
+
+		// Call OpenAI API
 		const textResponse = await openai.createChatCompletion({
 			model: "gpt-3.5-turbo",
 			messages: [
@@ -58,6 +64,8 @@ app.post("/story", async (req, res) => {
 				},
 			],
 		});
+
+		// TODO: Write search result to AWS dynamoDB
 
 		return res.status(200).json({
 			success: true,

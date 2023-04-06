@@ -22,8 +22,9 @@ app.get("/", (req, res) => {
 
 app.post("/image", async (req, res) => {
 	try {
-		const { reqPrompt } = req.body;
+		const { reqPrompt, userEmail } = req.body;
 		console.log("requesting image for: " + reqPrompt);
+		console.log("useremail: " + userEmail);
 		const response = await openai.createImage({
 			prompt: reqPrompt,
 			size: "512x512",
@@ -45,8 +46,9 @@ app.post("/image", async (req, res) => {
 
 app.post("/story", async (req, res) => {
 	try {
-		const { reqPrompt } = req.body;
+		const { reqPrompt, userEmail } = req.body;
 		console.log("requesting story for: " + reqPrompt);
+		console.log("useremail: " + userEmail);
 		const textResponse = await openai.createChatCompletion({
 			model: "gpt-3.5-turbo",
 			messages: [
