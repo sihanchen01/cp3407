@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Search from "./pages/Search"
+import History from "./pages/History"
 import About from "./pages/About"
 import Content from "./pages/Content"
 import Profile from "./pages/Profile"
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/content" element={<Content />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/history" element={<History />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </main>

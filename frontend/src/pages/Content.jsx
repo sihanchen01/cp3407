@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 
 const IMAGE_URL = "https://ase.sihanchen.com:8001/image"
 const STORY_URL = "https://ase.sihanchen.com:8001/story"
+const STORY_WITH_IMAGE_URL = "https://ase.sihanchen.com:8001/storywithimage"
 
 const Content = () => {
 
