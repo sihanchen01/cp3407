@@ -1,3 +1,4 @@
+const express = require("express");
 const app = express();
 app.use(express.json());
 
@@ -41,7 +42,7 @@ app.post("/getAllResults", async (req, res) => {
 	try {
 		const { userEmail } = req.body;
 		console.log("fetching all search results for user: " + userEmail);
-		const results = getAllByUserId(userEmail);
+		const results = await getAllByUserId(userEmail);
 		return res.status(200).json({
 			success: true,
 			results: results,
@@ -141,14 +142,13 @@ app.post("/storywithimage", async (req, res) => {
 		});
 		const story = textResponse.data.choices[0].message.content;
 
-		const dateFormatted = moment().format("ddd MMM/Do/YYYY h:mm:ssa");
-
 		// Form Search Result
 		const searchResult = {
 			UserId: userEmail,
-			CreationDate: dateFormatted,
+			CreationDate: moment().format("ddd MMM/Do/YYYY h:mm:ssa"),
 			ImageUrl: imageUrl,
 			Story: story,
+			SearchQuery: reqPrompt,
 		};
 
 		// Add search result to AWS DynamoDB
@@ -173,8 +173,8 @@ app.post("/storywithimage", async (req, res) => {
 https
 	.createServer(
 		{
-			cert: fs.readFileSync("sihanchen.com.crt"),
-			key: fs.readFileSync("sihanchen.com.key"),
+			cert: fs.readFileSync("ase.sihanchen.com.crt"),
+			key: fs.readFileSync("ase.sihanchen.com.key"),
 		},
 		app
 	)

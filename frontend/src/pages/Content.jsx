@@ -3,8 +3,8 @@ import CircleLoader from "react-spinners/CircleLoader"
 import BeatLoader from "react-spinners/BeatLoader"
 import { useLocation } from 'react-router-dom'
 
-const IMAGE_URL = "https://ase.sihanchen.com:8001/image"
-const STORY_URL = "https://ase.sihanchen.com:8001/story"
+// const IMAGE_URL = "https://ase.sihanchen.com:8001/image"
+// const STORY_URL = "https://ase.sihanchen.com:8001/story"
 const STORY_WITH_IMAGE_URL = "https://ase.sihanchen.com:8001/storywithimage"
 
 const Content = () => {
@@ -17,46 +17,68 @@ const Content = () => {
   const [imgLoading, setImgLoading] = useState(true)
   const [storyLoading, setStoryLoading] = useState(true)
 
-  const getImage = async() => {
+  // const getImage = async() => {
 
-    let res = await fetch(IMAGE_URL, {
-      method: "POST",
-      headers: {
-        'Content-Type': "application/json"
-      },
-      body: JSON.stringify({reqPrompt: searchTerm, userEmail: userEmail})
-    });
+  //   let res = await fetch(IMAGE_URL, {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': "application/json"
+  //     },
+  //     body: JSON.stringify({reqPrompt: searchTerm, userEmail: userEmail})
+  //   });
 
-    let data = await res.json();
-    if (data.success){
-      setImgUrl(data.url);
-      setImgLoading(false);
-    } else {
-      console.log("Image failed")
-      setImgUrl("https://media.istockphoto.com/id/182278828/photo/failed-square-stamp.jpg?s=612x612&w=0&k=20&c=Qd54_jcau3xM1Qmn7wzwH9n-cJCn2VWjMw9KMHwr1qM=")
-    }
-  }
+  //   let data = await res.json();
+  //   if (data.success){
+  //     setImgUrl(data.url);
+  //     setImgLoading(false);
+  //   } else {
+  //     console.log("Image failed")
+  //     setImgUrl("https://media.istockphoto.com/id/182278828/photo/failed-square-stamp.jpg?s=612x612&w=0&k=20&c=Qd54_jcau3xM1Qmn7wzwH9n-cJCn2VWjMw9KMHwr1qM=")
+  //   }
+  // }
 
-  const getStory = async() => {
-    let res = await fetch(STORY_URL, {
-      method: "POST",
-      headers: {
-        'Content-Type': "application/json"
-      },
-      body: JSON.stringify({reqPrompt: searchTerm})
-    });
-    let data = await res.json();
-    if (data.success){
-      setStory(data.story);
-      setStoryLoading(false);
-    } else {
-      setStory("Failed to retrieve story...")
-    }
+  // const getStory = async() => {
+  //   let res = await fetch(STORY_URL, {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': "application/json"
+  //     },
+  //     body: JSON.stringify({reqPrompt: searchTerm, userEmail: userEmail})
+  //   });
+  //   let data = await res.json();
+  //   if (data.success){
+  //     setStory(data.story);
+  //     setStoryLoading(false);
+  //   } else {
+  //     setStory("Failed to retrieve story...")
+  //   }
+  // }
+
+  const getStoryWithImage = async() => {
+    let res = await fetch(STORY_WITH_IMAGE_URL, {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({reqPrompt: searchTerm, userEmail: userEmail})
+      });
+
+      let data = await res.json();
+      if (data.success){
+        setImgUrl(data.imageUrl);
+        setStory(data.story);
+        setImgLoading(false);
+        setStoryLoading(false);
+      } else {
+        console.log("Search failed")
+        setImgUrl("https://media.istockphoto.com/id/182278828/photo/failed-square-stamp.jpg?s=612x612&w=0&k=20&c=Qd54_jcau3xM1Qmn7wzwH9n-cJCn2VWjMw9KMHwr1qM=")
+      }
   }
 
   useEffect(() => {
-    getImage()
-    getStory()
+    // getImage()
+    // getStory()
+    getStoryWithImage()
   }, [])
 
   return (

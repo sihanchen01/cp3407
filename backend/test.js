@@ -1,13 +1,22 @@
-const {
-	getAllByUserId,
-	getSearchResultsByKeys,
-	addOrUpdateSearchResult,
-	deleteSearchResult,
-} = require("./dynamoDB");
+require("dotenv").config();
+const request = require("request-promise");
+const AWS = require("aws-sdk");
 
-const userId = "sihanchen01@outlook.com";
-const ts = "Thu Apr/6th/2023 4:35:03pm";
+// Setup AWS DynamoDB
+AWS.config.update({
+	region: process.env.AWS_DEFAULT_REGION,
+	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+});
+const dynamoClient = new AWS.DynamoDB.DocumentClient();
+const TABLE_NAME = "searchResult";
 
-// const result = getSearchResultsByUserId(userId, ts);
+const s3 = new AWS.S3();
 
-getAllByUserId("user123");
+const url = s3.getSignedUrl("getObject", {
+	Bucket: "cp3407",
+	Key: "lightbulb_150x150.jpg",
+	Expires: 600,
+});
+
+console.log(url);

@@ -9,12 +9,12 @@ const Profile = () => {
   const [resultsNumber, setResultsNumber] = useState(0)
 
   const getSearchResults = async() => {
-    let res = await fetch("http://localhost:8001/getAllResults", {
+    let res = await fetch("https://ase.sihanchen.com:8001/getAllResults", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userEmail: "sihanchen01@outlook.com"})
+      body: JSON.stringify({userEmail: user.email})
     })
 
     let data = await res.json();
