@@ -121,6 +121,7 @@ npm run start
     |:--:| 
     | *valid user search* |
 
+    #
 * Version 1.2
     * Complete Online deployment with [AWS Lightsail](https://aws.amazon.com/lightsail/) instance
     * Added SSL Certificate
