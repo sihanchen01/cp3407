@@ -85,8 +85,8 @@ npm run start
     * Data sructure:
       | UserId (String) | CreationDate (String) | Story (String) | StoryLike (Boolean) | ImageUrl (String) | ImageLike (Boolean)| SearchQuery (String) |
       |---|---|---|---|---|---|---|
-      | email1  | 1680748332  | ipsum  | 0 | http:example.com/image  | 1    | cat |
-      | email2 | 1680748309  | ipsum  | 0 | http:example.com/image  | null | venus alien |
+      | email1  | 1680748332  | ipsum  | 0 | http:ex.com/img  | 1    | cat |
+      | email2 | 1680748309  | ipsum  | 0 | http:ex.com/img  | null | venus alien |
       * UserId: user email retrived from auth0, store as a string
       * CreationDate: formatted date string (using [moment](https://momentjs.com/)), store as a string 
       * Story/ImageUrl: search result retrived from OpenAI, store as a string
