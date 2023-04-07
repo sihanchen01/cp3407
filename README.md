@@ -94,8 +94,11 @@ npm run start
       * StoryLike/ImageLike: boolean value, null for no feedback; store as a boolean
       * SearchQuery: the user input that fed to OpenAI for content generation, store as a string
     * __TODO__:
-      * auth0 does not remember user logged in, see if there is fix for that
-      * Website is built with react, hence a Single-Page-Application(SPA). Since we are using react-router-dom for routing, all urls that are not Home url won't proper response to refresh.
+      * ~~auth0 does not remember user logged in, see if there is fix for that~~
+        * DONE: in `main.jsx` file, change 'cacheLocation' from 'memory' to 'localstorage'
+      * ~~Website is built with react, hence a Single-Page-Application(SPA). Since we are using react-router-dom for routing, all urls that are not Home url won't proper response to refresh.~~
+        * DONE: add `.htaccess` file to server, in 'htdoc' folder. use ['catch all'](https://stackoverflow.com/questions/27928372/react-router-urls-dont-work-when-refreshing-or-writing-manually) method to redirect traffic.
+      * Add like or dislike for story and image
 
     | ![search history](./image/search_history.png) |
     |:--:| 
@@ -119,7 +122,8 @@ npm run start
     * __DEBUG__:
       * backend server works during test, however, sending CORS error in production. possible cause: changed domain causing https cert failure
     * __TODO__:
-      * fix CORS error
+      * ~~fix CORS error~~
+        * DONE: the error is due to failed https authentication on backend server
 
     | ![new home page](./image/new_home_page.png) |
     |:--:| 
@@ -139,10 +143,10 @@ npm run start
     * Added SSL Certificate
     * Hosted website at: [sihanchen.com](https://sihanchen.com)
     * __TODO__:
-      * Create roadmap to add more functions and optimize current features
-      * Add user registration, limit using to verified users to avoid spam 
-      * Pick a Database and design schemas
-      * Consider the possibility of using AWS S3 to store user generated content
+      * ~~Create roadmap to add more functions and optimize current features~~
+      * ~~Add user registration, limit using to verified users to avoid spam~~ 
+      * ~~Pick a Database and design schemas~~
+      * ~~Consider the possibility of using AWS S3 to store user generated content~~
     #
 
 * Version 1.1
@@ -159,7 +163,7 @@ npm run start
 
     * __TODO__: 
         * Add function to gather user feedback on satisfaction of AI generated content, for further tuning
-        * Online deployment.
+        * ~~Online deployment~~
     #
 
 * Version 1.0
@@ -176,8 +180,8 @@ npm run start
       | *An example of AI generated content with topic: 'Batman vs Ironman'* |
 
     * __TODO__: 
-      * Add search bar
-      * Navigation
-      * More CSS
+      * ~~Add search bar~~
+      * ~~Navigation~~
+      * ~~More CSS~~
 
 
