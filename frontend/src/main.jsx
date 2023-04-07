@@ -16,7 +16,7 @@ const providerConfig = {
     clientId: clientId,
     redirectUri: window.location.origin,
     useRefreshTokens: true,
-    cacheLocation: "memory"
+    cacheLocation: "localstorage"
 }
 
 
