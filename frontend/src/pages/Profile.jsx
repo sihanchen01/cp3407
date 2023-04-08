@@ -3,13 +3,16 @@ import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+const TEST_URL = "http://localhost:8001/get-all-results"
+const PRODUCTION_URL = "https://ase.sihanchen.com:8001/get-all-results"
+
 const Profile = () => {
   const {user, isAuthenticated} = useAuth0();
   const [searchHistory, setSearchHistory] = useState([])
   const [resultsNumber, setResultsNumber] = useState(0)
 
   const getSearchResults = async() => {
-    let res = await fetch("https://ase.sihanchen.com:8001/getAllResults", {
+    let res = await fetch(PRODUCTION_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -12,13 +12,13 @@ const History = () => {
         <div key={index} className="text-center">
           <p>Search No.{index + 1}</p>
           <p>Search Query: {h.SearchQuery}</p>
-          <p>Story: {h.Story.split(".")[0]} ...</p>
+          <p>Story: {h.Story?.split(".")[0]} ...</p>
           <p>Image: &nbsp;&nbsp;&nbsp;
-            <a target="_blank" href={h.ImageUrl}>
-              <img src={h.ImageUrl} alt="search history image" width={80} height={80}/>
+            <a target="_blank" href={h.ImageUrl || ""}>
+              <img src={h.ImageUrl || ""} alt="search history image" width={80} height={80}/>
             </a>
           </p>
-          <p>Creation Date: {h.CreationDate}</p> 
+          <p>Creation Date: {h.CreationDate || ""}</p> 
           <hr />
         </div>
       ))}

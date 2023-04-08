@@ -22,6 +22,7 @@ const {
 	getAllByUserId,
 	getSearchResultsByKeys,
 	addOrUpdateSearchResult,
+	storeImageToS3,
 	deleteSearchResult,
 } = require("./dynamoDB");
 
@@ -34,7 +35,7 @@ const moment = require("moment");
 Only write to DynamoDB when calling /storywithimage
 */
 // Get all search results by given User ID
-app.post("/getAllResults", async (req, res) => {
+app.post("/get-all-results", async (req, res) => {
 	try {
 		const { userEmail } = req.body;
 		console.log("fetching all search results for user: " + userEmail);
@@ -109,7 +110,7 @@ app.post("/story", async (req, res) => {
 
 /* Generate Both Story and Image
 This API call will write search result to DB */
-app.post("/storywithimage", async (req, res) => {
+app.post("/story-with-image", async (req, res) => {
 	try {
 		// Get Image
 		const { reqPrompt, userEmail } = req.body;
@@ -133,23 +134,44 @@ app.post("/storywithimage", async (req, res) => {
 		});
 		const story = textResponse.data.choices[0].message.content;
 
+		const creationDate = moment().format("ddd MMM.Do.YYYY h:mm:ssa");
+
 		// Form Search Result
 		const searchResult = {
 			UserId: userEmail,
-			CreationDate: moment().format("ddd MMM/Do/YYYY h:mm:ssa"),
+			CreationDate: creationDate,
 			ImageUrl: imageUrl,
 			Story: story,
 			SearchQuery: reqPrompt,
 		};
 
+		console.log("convert image url to s3 ...");
+		const s3ImageUrl = storeImageToS3(searchResult);
 		// Add search result to AWS DynamoDB
 		console.log("writing search result into DynamoDB...");
-		addOrUpdateSearchResult(searchResult);
+		addOrUpdateSearchResult({ ...searchResult, ImageUrl: s3ImageUrl });
 
 		return res.status(200).json({
 			success: true,
-			imageUrl: imageUrl,
-			story: story,
+			searchResult: searchResult,
+			s3ImageUrl: s3ImageUrl,
+		});
+	} catch (err) {
+		return res.status(400).json({
+			success: false,
+			error: err.response
+				? err.response.data
+				: "There is something wrong with server.",
+		});
+	}
+});
+
+app.post("/story-with-image-feedback", async (req, res) => {
+	try {
+		const { resultWithFeedback } = req.body;
+		addOrUpdateSearchResult(resultWithFeedback);
+		return res.status(200).json({
+			success: true,
 		});
 	} catch (err) {
 		return res.status(400).json({

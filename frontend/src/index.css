@@ -231,6 +231,14 @@ a:hover {
   visibility: visible;
 }
 
+.feedback-button-like-active {
+  background-color: #04b85b;
+}
+
+.feedback-button-dislike-active {
+  background-color: #c01313;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #1e78c6;

@@ -41,12 +41,21 @@ const getSearchResultsByKeys = async (userId, creationDate) => {
 
 // Upadte, Create
 const addOrUpdateSearchResult = async (searchResult) => {
+	const params = {
+		TableName: TABLE_NAME,
+		Item: searchResult,
+	};
+	return await dynamoClient.put(params).promise();
+};
+
+// Download image and store to S3
+const storeImageToS3 = (searchResult) => {
 	const options = {
 		uri: searchResult.ImageUrl,
 		encoding: null,
 	};
 
-	const s3ImageKey = searchResult.UserId + searchResult.CreationDate;
+	const s3ImageKey = `${searchResult.UserId} / ${searchResult.SearchQuery} / ${searchResult.CreationDate}`;
 
 	request(options, function (err, res, body) {
 		if (err || res.statusCode !== 200) {
@@ -74,17 +83,10 @@ const addOrUpdateSearchResult = async (searchResult) => {
 	const s3ImageUrl = s3.getSignedUrl("getObject", {
 		Bucket: "cp3407",
 		Key: s3ImageKey,
-		Expires: 3600,
 	});
 
-	const params = {
-		TableName: TABLE_NAME,
-		Item: { ...searchResult, ImageUrl: s3ImageUrl },
-	};
-	return await dynamoClient.put(params).promise();
+	return s3ImageUrl;
 };
-
-// addOrUpdateSearchResult({ ...exampleData, StoryLike: true, ImageLike: true });
 
 // Delete
 const deleteSearchResult = async (userId, creationDate) => {
@@ -103,5 +105,6 @@ module.exports = {
 	getAllByUserId,
 	getSearchResultsByKeys,
 	addOrUpdateSearchResult,
+	storeImageToS3,
 	deleteSearchResult,
 };
