@@ -20,6 +20,12 @@ const getAllByUserId = async (userId) => {
 	};
 	const dataAll = await dynamoClient.scan(params).promise();
 	const result = dataAll.Items.filter((d) => d.UserId == userId);
+	// TODO: Update s3 image presign url
+	result.forEach((searchResult) => {
+		const s3ImageKey = `${searchResult.UserId} / ${searchResult.SearchQuery} / ${searchResult.CreationDate}`;
+		const s3ImageUrl = s3GetImageUrl(s3ImageKey);
+		searchResult.ImageUrl = s3ImageUrl;
+	});
 	return result;
 };
 
@@ -80,9 +86,16 @@ const storeImageToS3 = (searchResult) => {
 		}
 	});
 
+	const s3ImageUrl = s3GetImageUrl(s3ImageKey);
+
+	return s3ImageUrl;
+};
+
+// Get image url form image key
+const s3GetImageUrl = (imageKey) => {
 	const s3ImageUrl = s3.getSignedUrl("getObject", {
 		Bucket: "cp3407",
-		Key: s3ImageKey,
+		Key: imageKey,
 	});
 
 	return s3ImageUrl;

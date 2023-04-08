@@ -56,7 +56,6 @@ Only write to DynamoDB when calling /storywithimage
 app.post("/get-all-results", async (req, res) => {
 	try {
 		const { userEmail } = req.body;
-		console.log("fetching all search results for user: " + userEmail);
 		const results = await getAllByUserId(userEmail);
 		return res.status(200).json({
 			success: true,

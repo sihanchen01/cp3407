@@ -83,7 +83,8 @@ npm run start
   * Add a new game 'Who Am I', acquire name list from [Time100: The Most Influential People of 2022](https://time.com/collection/100-most-influential-people-2022/). Generate three hints from chatgpt, let user guess who that person is.
 
   * __TODO__:
-    * Although it last longer than OpenAI default image url, S3 image url still has TTL issue, see if there is fix for that.
+    * ~~Although it last longer than OpenAI default image url, S3 image url still has TTL issue, see if there is fix for that.~~
+      * DONE: when getting user search history, update all their s3 image pre-signed url, see [dynamoDB.js](./backend/dynamoDB.js)
 
   | ![who am I](./image/whoami.png) |
   |:--:| 
