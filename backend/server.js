@@ -22,6 +22,20 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+// Read name list
+const NAMELIST = [];
+fs.readFile("names.txt", (err, data) => {
+	if (err) {
+		console.log(err);
+	}
+	data
+		.toString()
+		.split("\n")
+		.forEach((e) => {
+			NAMELIST.push(e);
+		});
+});
+
 // Get AWS DynamoDB Hooks
 const {
 	getAllByUserId,
@@ -181,6 +195,36 @@ app.post("/story-with-image-feedback", async (req, res) => {
 		addOrUpdateSearchResult(resultWithFeedback);
 		return res.status(200).json({
 			success: true,
+		});
+	} catch (err) {
+		return res.status(400).json({
+			success: false,
+			error: err.response
+				? err.response.data
+				: "There is something wrong with server.",
+		});
+	}
+});
+
+app.get("/whoami", async (req, res) => {
+	try {
+		const famousPeople = NAMELIST[Math.floor(Math.random() * NAMELIST.length)];
+		const textResponse = await openai.createChatCompletion({
+			model: "gpt-3.5-turbo",
+			messages: [
+				{
+					role: "user",
+					content: `Give me three 30 words hints on ${famousPeople}, without mention name ${famousPeople}`,
+				},
+			],
+		});
+		const hintsRaw = textResponse.data.choices[0].message.content.split("\n");
+		const hints = hintsRaw.filter((h) => h !== "");
+		return res.status(200).json({
+			success: true,
+			hints: hints,
+			answer: famousPeople,
+			namelist: NAMELIST,
 		});
 	} catch (err) {
 		return res.status(400).json({

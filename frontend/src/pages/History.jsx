@@ -1,4 +1,4 @@
-import { useLocation, useRouteLoaderData } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const History = () => {
   const location = useLocation();
@@ -14,9 +14,9 @@ const History = () => {
           <p>Search Query: {h.SearchQuery}</p>
           <p>Story: {h.Story?.split(".")[0]} ...</p>
           <p>Image: &nbsp;&nbsp;&nbsp;
-            <a target="_blank" href={h.ImageUrl || ""}>
-              <img src={h.ImageUrl || ""} alt="search history image" width={80} height={80}/>
-            </a>
+          <Link to="/historyDetail" state={{searchResult: h}}>
+            <img src={h.ImageUrl || ""} alt="search history image" width={80} height={80}/>
+          </Link>
           </p>
           <p>Creation Date: {h.CreationDate || ""}</p> 
           <hr />

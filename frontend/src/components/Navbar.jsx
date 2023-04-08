@@ -47,6 +47,9 @@ const MyNavbar = () => {
               <LinkContainer to="/search">
                 <Nav.Link className="fs-5 fw-bold mx-2">Search</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/whoami">
+                <Nav.Link className="fs-5 fw-bold mx-2">Who Am I</Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/about">
                 <Nav.Link className="fs-5 fw-bold mx-2">About</Nav.Link>
               </LinkContainer>
