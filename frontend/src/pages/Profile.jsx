@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import { useState, useEffect } from "react";
-import { Container, Button, ToastContainer } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
