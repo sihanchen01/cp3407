@@ -45,7 +45,26 @@ flowchart LR
 Checkout our application at **[sihanchen.com](https://sihanchen.com)** and we would greatly appreciate any feedback you have.
 
 ### Local deployment
+#### Docker
+Hosting our application using docker if effortless. You can either clone the entire repository or simply download the `docker-compose.yml` file. Then, run the following command:
+```
+docker-compose -f ./docker-compose.yml up -d
+```
+The default ports are: `8080` for frontend and `8001` for backend. Change ports to avoid conflict with other applications:
+``` docker
+version: "3"
+services:
+  myvite:
+    image: sihanchen01/ase-vite:latest
+    ports:
+      - 8080:80
+  myexpress:
+    image: sihanchen01/ase-express:latest
+    ports:
+      - 8001:8001
+```
 
+#### GitHub clone
 To use the application on your local computer, first clone repo :
 ```
 git clone https://github.com/sihanchen01/cp3407.git
@@ -79,6 +98,12 @@ Lastly, to **run** both frontend and backend applications:
 npm run start
 ```
 ## Changelog:
+* Version 1.6
+  * Build docker image, to allow user to quickly setup local environment.
+  * Add a new branch [docker](github.com/sihanchen01/cp3407/tree/docker). Inside this new branch you will find `docker-compose.yml`, which allows you to quickly setup localhost using pre-build docker image stored at our repository:
+    * [fronend docker image](https://hub.docker.com/repository/docker/sihanchen01/ase-vite/general)
+    * [backend docker image](https://hub.docker.com/repository/docker/sihanchen01/ase-express/general)
+
 * Version 1.5
   * Add a new game 'Who Am I', acquire name list from [Time100: The Most Influential People of 2022](https://time.com/collection/100-most-influential-people-2022/). Generate three hints from chatgpt, let user guess who that person is.
 
