@@ -22,7 +22,7 @@ const Whoami = () => {
   const [score, setScore] = useState(0)
 
   const getHints = async() => {
-    let res = await fetch(PRODUCTION.WHOAMI_URL)
+    let res = await fetch(TESTING.WHOAMI_URL)
     let data = await res.json()
     if (data.success) {
       setLoading(false)

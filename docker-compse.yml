@@ -1,0 +1,10 @@
+version: "3"
+services:
+  myvite:
+    image: sihanchen01/ase-vite:latest
+    ports:
+      - 8080:80
+  myexpress:
+    image: sihanchen01/ase-express:latest
+    ports:
+      - 8001:8001
