@@ -32,6 +32,7 @@ flowchart LR
 ## Tech Stack
 * React (vite)
 * ExpressJS
+* AWS S3, AWS DynamoDB
 * AWS Lightsail 
 
 | ![Diagram](./image/architecture_diagram.png) | 
