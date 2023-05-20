@@ -33,7 +33,7 @@ const Content = () => {
   const [imageFeedback, setImageFeedback] = useState(-1)
 
   const getStoryWithImage = async() => {
-    let res = await fetch(PRODUCTION.STORY_WITH_IMAGE_URL, {
+    let res = await fetch(TESTING.STORY_WITH_IMAGE_URL, {
         method: "POST",
         headers: {
           'Content-Type': "application/json"
@@ -48,7 +48,7 @@ const Content = () => {
         setLoading(false);
       } else {
         toast.error("Search Failed")
-        setImageUrl(PRODUCTION.FAILED_IMAGE)
+        setImageUrl(TESTING.FAILED_IMAGE)
       }
   }
 
@@ -60,7 +60,7 @@ const Content = () => {
         StoryLike: storyFeedback ? true : false,
         ImageLike: imageFeedback ? true : false
       }
-      let res = await fetch(PRODUCTION.SEND_FEEDBACK_URL, {
+      let res = await fetch(TESTING.SEND_FEEDBACK_URL, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
