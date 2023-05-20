@@ -68,7 +68,7 @@ const Whoami = () => {
     <div className="container" >
       <div className="d-flex justify-content-center">
         <div className="d-flex flex-column text-center">
-          <h1 className="h1-custom-2 mx-5">Who Am I?</h1>
+          <h1 className="h1-custom mx-5">Who Am I?</h1>
           <h3> Score: {score}</h3>
         </div>
           <iframe src="https://giphy.com/embed/xT5LMx8L9rZtLGgCL6" width="176" height="132"  className="mb-5" allowFullScreen></iframe>

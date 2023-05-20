@@ -28,6 +28,7 @@ svg>path {
 
 main {
   min-height: 50vh;
+  text-align: center;
 }
 
 .container {
@@ -60,6 +61,14 @@ main {
   font-style: italic;
 }
 
+section {
+  padding: 2rem 0;
+}
+
+.hr-custom {
+  width: 50%;
+  margin: 3rem auto;
+}
 
 h1.h1-custom {
   color: #1e78c6;
@@ -68,30 +77,76 @@ h1.h1-custom {
   font-family: 'Kanit', 'sans-serif';
   font-weight: 900;
   line-height: 1.5;
-  margin: 0 auto 2rem;
-  text-align: center;
   font-style: italic;
 }
 
-h1.h1-custom-2 {
+
+h2.h2-custom {
   color: #1e78c6;
-  font-size: 3.2em;
   font-family: 'Kanit', 'sans-serif';
-  font-weight: 900;
-  line-height: 1.5;
-  font-style: italic;
+  margin: 3rem auto;
 }
 
 .my-font-custom {
-  color: #1e78c6;
+  font-size: 1.2rem;
   line-height: 1.1;
   font-family: 'Kanit', 'sans-serif';
-  font-weight: 600;
   line-height: 1.5;
   margin: 0 auto 2rem;
   font-style: italic;
 }
 
+span {
+  color: #1e78c6;
+  font-size: 2rem;
+  font-weight: 600;
+  font-style: normal;
+  margin: auto 0.5rem;
+}
+
+.gallery {
+  display: grid;
+  width: 60%;
+  margin: 5rem auto;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 5vw);
+  gap: 1.5rem;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery__item--1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.gallery__item--2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.gallery__item--3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.gallery__item--4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
 
 img {
   border-radius: 20px;
@@ -162,7 +217,7 @@ a:hover {
 
 .footer_container {
   background-color: #213547;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,6 +226,11 @@ a:hover {
 .footer_container>* {
   margin: 0 0.8rem;
   color: #eee;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .footer_container>span>a {

@@ -4,7 +4,7 @@ const About = () => {
   return(
     <Container>
       <h5 className="lh-base ps-5 my-font-custom fst-italic">
-        Welcome to our website, where we help you unlock your creative potential by generating ideas from your prompts.
+        Welcome to IDEA Generator, where we help you unlock your creative potential by generating ideas from your prompts.
         <br></br> 
         <br></br> 
         Our platform is designed to help you overcome creative blocks and spark new ideas for any project or task you may have.
